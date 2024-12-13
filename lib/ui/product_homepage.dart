@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:latihan_api_demo/bloc/product_bloc.dart';
 
 class ProductHomepage extends StatelessWidget {
@@ -17,7 +18,7 @@ class ProductHomepage extends StatelessWidget {
         child: BlocBuilder<ProductBloc, ProductState>(
           builder: (context, state) {
             if (state is ProductLoading) {
-              return Center(child: CircularProgressIndicator(),)
+              return Center(child: CircularProgressIndicator(),);
             } else if (state is ProductError) {
               return Center(child: Text(state.message),);
             } else if (state is ProductLoaded) {
